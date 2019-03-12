@@ -1,0 +1,61 @@
+{
+  "name": "raise",
+  "version": "1.0.0",
+  "description": "The future of fund raising via passive activism",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "babel-node build/prestart.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "lint": "esw webpack.config.* src build --color",
+    "lint:watch": "npm run lint -- --watch",
+    "open:src": "babel-node build/server.js",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "mocha --reporter progress build/test.js \"src/**/*.spec.js\"",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avantbaker/raise.git"
+  },
+  "author": "Avant Baker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avantbaker/raise/issues"
+  },
+  "homepage": "https://github.com/avantbaker/raise#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-watch": "^5.0.1",
+    "express": "^4.16.4",
+    "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^14.0.0",
+    "localtunnel": "^1.9.1",
+    "mocha": "^6.0.2",
+    "nock": "^10.0.6",
+    "npm-run-all": "^4.1.5",
+    "nsp": "^3.2.1",
+    "numeral": "^2.0.6",
+    "open": "0.0.5",
+    "rimraf": "^2.6.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-dev-middleware": "^3.6.1",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-md5-hash": "0.0.6"
+  }
+}
