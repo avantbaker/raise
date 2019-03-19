@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   // compilation vs. quality
@@ -22,7 +23,12 @@ export default {
   // devServer: {
   //   contentBase: path.resolve(__dirname, 'src')
   // },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject: true,
+    }),
+  ],
   // handles different filetypes
   module: {
     rules: [
